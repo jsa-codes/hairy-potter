@@ -1,5 +1,5 @@
 import { makePottery } from './PotteryWheel.js';
-// let availablePottery = makePottery();
+let availablePottery = makePottery();
 
 export const firePottery = (pottery, firingTemp) => {
   // Add a new property of "fired" = true
