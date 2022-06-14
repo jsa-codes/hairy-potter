@@ -1,3 +1,5 @@
+// Create a function that takes (2) inputs as arguments - (pottery Object, temperature)
+
 export const firePottery = (pottery, temp) => {
   // Add a new property of "fired" = true
   pottery.fired = true;
