@@ -6,11 +6,11 @@ import { usePottery } from './PotteryCatalog.js';
 import { PotteryList } from './PotteryList.js';
 
 // Make 5 pieces of pottery at the wheel
-const mug = makePottery('mug', 12, 8);
-const bowl = makePottery('bowl', 214, 24);
-const cup = makePottery('cup', 5, 7);
-const saucer = makePottery('saucer', 6, 1);
-const plate = makePottery('plate', 18, 2);
+const mug = makePottery('Mug', 12, 8);
+const bowl = makePottery('Bowl', 214, 24);
+const cup = makePottery('Cup', 5, 7);
+const saucer = makePottery('Saucer', 6, 2);
+const plate = makePottery('Plate', 18, 4);
 
 console.log('Making the pottery: ', mug, bowl, cup, saucer, plate);
 
@@ -25,7 +25,7 @@ console.log(firedMug, firedBowl, firedCup, firedSaucer, firedPlate);
 
 // Determine which ones should be sold, and their price
 
-// // // mug
+// mug
 toSellOrNotToSell(firedMug);
 
 // bowl
@@ -41,9 +41,8 @@ toSellOrNotToSell(firedSaucer);
 toSellOrNotToSell(firedPlate);
 
 console.log('See which pottery should be sold: ', usePottery());
-console.log('See which pottery should be sold: ', PotteryList());
+console.log('Output of pottery to the browser: ', PotteryList());
 
-// // Invoke the component function that renders the HTML list
-
+// Invoke the component function that renders the HTML list
 const parentHTMLElement = document.querySelector('.potteryList');
 parentHTMLElement.innerHTML = PotteryList(usePottery());
