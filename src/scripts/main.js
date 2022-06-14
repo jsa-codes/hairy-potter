@@ -2,82 +2,48 @@
 import { makePottery } from './PotteryWheel.js';
 import { firePottery } from './Kiln.js';
 import { toSellOrNotToSell } from './PotteryCatalog.js';
+import { usePottery } from './PotteryCatalog.js';
 import { PotteryList } from './PotteryList.js';
 
 // Make 5 pieces of pottery at the wheel
-let mug = makePottery('mug', 12, 8);
-console.log(`Making the mug`, mug);
+const mug = makePottery('mug', 12, 8);
+const bowl = makePottery('bowl', 214, 24);
+const cup = makePottery('cup', 5, 7);
+const saucer = makePottery('saucer', 6, 1);
+const plate = makePottery('plate', 18, 2);
 
-let bowl = makePottery('bowl', 214, 24);
-console.log(`Making the bowl`, bowl);
+console.log('Making the pottery: ', mug, bowl, cup, saucer, plate);
 
-let cup = makePottery('cup', 5, 7);
-console.log(`Making the cup`, cup);
+// Fire each piece of pottery in the kiln AND check to see if it is cracked
+const firedMug = firePottery(mug, 2100);
+const firedBowl = firePottery(bowl, 2100);
+const firedCup = firePottery(cup, 2204);
+const firedSaucer = firePottery(saucer, 2199);
+const firedPlate = firePottery(plate, 2198);
 
-let saucer = makePottery('saucer', 6, 1);
-console.log(`Making the saucer`, saucer);
+console.log(firedMug, firedBowl, firedCup, firedSaucer, firedPlate);
 
-let plate = makePottery('plate', 18, 2);
-console.log(`Making the plate`, plate);
-
-// Fire each piece of pottery in the kiln
-let firedMug = firePottery(mug, 2100);
-console.log(
-  `Checking to see if the mug was fired at too high of a temp, and if it is cracked `,
-  firedMug
-);
-
-let firedBowl = firePottery(bowl, 2100);
-console.log(
-  `Checking to see if the bowl was fired at too high of a temp, and if it is cracked `,
-  firedBowl
-);
-
-let firedCup = firePottery(cup, 2204);
-console.log(
-  `Checking to see if the cup was fired at too high of a temp, and if it is cracked `,
-  firedCup
-);
-
-// saucer
-let firedSaucer = firePottery(saucer, 2199);
-console.log(
-  `Checking to see if the saucer was fired at too high of a temp, and if it is cracked `,
-  firedSaucer
-);
-
-// plate
-let firedPlate = firePottery(plate, 2198);
-console.log(
-  `Checking to see if the plate was fired at too high of a temp, and if it is cracked `,
-  firedPlate
-);
-
-// // Determine which ones should be sold, and their price
+// Determine which ones should be sold, and their price
 
 // // // mug
-let mugBeingSold = toSellOrNotToSell(mug);
-console.log(mugBeingSold);
+toSellOrNotToSell(firedMug);
 
 // bowl
-let bowlBeingSold = toSellOrNotToSell(bowl);
-console.log(bowlBeingSold);
+toSellOrNotToSell(firedBowl);
 
 // cup
-let cupBeingSold = toSellOrNotToSell(cup);
-console.log(cupBeingSold);
+toSellOrNotToSell(firedCup);
 
 // saucer
-let saucerBeingSold = toSellOrNotToSell(saucer);
-console.log(saucerBeingSold);
+toSellOrNotToSell(firedSaucer);
 
 // plate
-let plateBeingSold = toSellOrNotToSell(plate);
-console.log(plateBeingSold);
+toSellOrNotToSell(firedPlate);
 
-// // // Invoke the component function that renders the HTML list
-let potteryListed = PotteryList();
-console.log(potteryListed);
+console.log('See which pottery should be sold: ', usePottery());
+console.log('See which pottery should be sold: ', PotteryList());
+
+// // Invoke the component function that renders the HTML list
 
 const parentHTMLElement = document.querySelector('.potteryList');
-parentHTMLElement.innerHTML = PotteryList();
+parentHTMLElement.innerHTML = PotteryList(usePottery());
