@@ -1,16 +1,18 @@
 import { makePottery } from './PotteryWheel.js';
-let availablePottery = makePottery();
 
 export const firePottery = (pottery, firingTemp) => {
+  const availablePottery = makePottery();
   // Add a new property of "fired" = true
-  pottery.fired = true;
+  availablePottery.fired = true;
+  availablePottery.cracked = false;
   // Function must add a New Property of "cracked"
   // IF the temp of the kiln is ABOVE 2200 degrees then the "cracked" property = true
   // IF the temp of the kiln is AT OR BELOW 2200 then "cracked" = false
+
   if (firingTemp > 2200) {
-    pottery.cracked = true;
+    availablePottery.cracked = true;
   } else if (firingTemp <= 2200) {
-    pottery.cracked = false;
+    availablePottery.cracked = false;
   }
-  return pottery;
+  return availablePottery;
 };
