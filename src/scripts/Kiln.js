@@ -1,17 +1,16 @@
-// Create a function that takes (2) inputs as arguments - (pottery Object, temperature)
+// Define and export a function "firePottery"
+// This function must accept the following values, in the following order:
+//  INPUT 1) An object representing a piece of property that was made at the wheel in the makePottery function
+//  INPUT 2) A number specifying the firing temperature of the kiln
+export const firePottery = (potteryObj, firingTemperature) => {
+    potteryObj.fired = true
 
-export const firePottery = (pottery, temp) => {
-  // Add a new property of "fired" = true
-  pottery.fired = true;
+    if (firingTemperature > 2200) {
+      potteryObj.cracked = true
+    }
 
-  // Function must add a New Property of "cracked"
-  // IF the temp of the kiln is ABOVE 2200 degrees then the "cracked" property = true
-  // IF the temp of the kiln is AT OR BELOW 2200 then "cracked" = false
-
-  if (temp > 2200) {
-    pottery.cracked = true;
-  } else if (temp <= 2200) {
-    pottery.cracked = false;
-  }
-  return pottery;
-};
+    else if (firingTemperature <= 2200){
+      potteryObj.cracked = false
+    }
+    return potteryObj
+}

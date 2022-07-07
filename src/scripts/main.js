@@ -1,48 +1,59 @@
-// Imports go first
-import { makePottery } from './PotteryWheel.js';
-import { firePottery } from './Kiln.js';
-import { toSellOrNotToSell } from './PotteryCatalog.js';
-import { usePottery } from './PotteryCatalog.js';
-import { PotteryList } from './PotteryList.js';
+import { makePottery } from "./PotteryWheel.js"
 
-// Make 5 pieces of pottery at the wheel
-const mug = makePottery('Mug', 12, 8);
-const bowl = makePottery('Bowl', 214, 24);
-const cup = makePottery('Cup', 5, 7);
-const saucer = makePottery('Saucer', 6, 2);
-const plate = makePottery('Plate', 18, 4);
+// Check the makePottery function
+const bowl = makePottery('Bowl', 2, 5)
+console.log(bowl);
 
-console.log('Making the pottery: ', mug, bowl, cup, saucer, plate);
+const cup = makePottery('Cup', 4, 7);
+console.log(cup);
 
-// Fire each piece of pottery in the kiln AND check to see if it is cracked
-const firedMug = firePottery(mug, 2100);
-const firedBowl = firePottery(bowl, 2100);
-const firedCup = firePottery(cup, 2204);
-const firedSaucer = firePottery(saucer, 2199);
-const firedPlate = firePottery(plate, 2198);
+const plate = makePottery('Plate', 7, 5);
+console.log(plate);
 
-console.log(firedMug, firedBowl, firedCup, firedSaucer, firedPlate);
+const soapDish = makePottery('Soap Dish', 3, 4);
+console.log(soapDish);
 
-// Determine which ones should be sold, and their price
+const mug = makePottery('Mug', 5, 5);
+console.log(mug);
 
-// mug
-toSellOrNotToSell(firedMug);
+// Check the firePottery function
+// The arguments are: The Result of the previous function + the firing temperature.
+const bowlFired = firePottery(bowl, 2200)
+console.log(bowlFired);
 
-// bowl
-toSellOrNotToSell(firedBowl);
+const cupFired = firePottery(cup, 2230)
+console.log(cupFired);
 
-// cup
-toSellOrNotToSell(firedCup);
+const plateFired = firePottery(plate, 2224)
+console.log(plateFired)
 
-// saucer
-toSellOrNotToSell(firedSaucer);
+const soapDishFired = firePottery(soapDish, 2190)
+console.log(soapDishFired)
 
-// plate
-toSellOrNotToSell(firedPlate);
+const mugFired = firePottery(mug, 2200)
+console.log(mugFired)
+        
+        
+// Checking to sellOrNotToSell
+toSellOrNotToSell(bowlFired, cupFired, plateFired, soapDishFired, mugFired)
 
-console.log('See which pottery should be sold: ', usePottery());
-console.log('Output of pottery to the browser: ', PotteryList());
+// Checking PotteryList
+PotteryList(pottery)
 
-// Invoke the component function that renders the HTML list
-const parentHTMLElement = document.querySelector('.potteryList');
-parentHTMLElement.innerHTML = PotteryList(usePottery());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
